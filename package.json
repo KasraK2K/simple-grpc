@@ -1,0 +1,24 @@
+{
+  "name": "simple-grpc",
+  "version": "1.0.0",
+  "description": "A simple grpc crud",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js -e js,proto"
+  },
+  "keywords": [
+    "grpc",
+    "protocol-buffer",
+    "crud",
+    "node-grpc"
+  ],
+  "author": "Kasra Karami <Kasra.Karami.KK@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.6.8",
+    "@grpc/proto-loader": "^0.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

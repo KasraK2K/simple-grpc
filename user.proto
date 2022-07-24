@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+message User {
+  int32 id = 1;
+  string username = 2;
+  string email = 3;
+  string first_name = 4;
+  string last_name = 5;
+  string password = 6;
+  string address = 7;
+  bool is_admin = 8;
+}
+
+message CreateUser {
+  string username = 1;
+  string email = 2;
+  string first_name = 3;
+  string last_name = 4;
+  string password = 5;
+  string address = 6;
+}
+
+message UpdateUserFields {
+  FindUser find = 1;
+  UpdateUser update = 2;
+}
+
+message FindUser {
+  int32 id = 1;
+}
+
+message UpdateUser {
+  optional string email = 1;
+  optional string first_name = 2;
+  optional string last_name = 3;
+  optional string password = 4;
+  optional string address = 5;
+  optional bool is_admin = 6;
+
+}
+
+message UserList {
+  repeated User user = 1;
+}
+
+message Empty {}
+
+service UserService {
+  rpc GetUserService(FindUser) returns (User) {}
+  rpc GetUserListService(Empty) returns (UserList) {}
+  rpc CreateUserService(CreateUser) returns (User) {}
+  rpc UpdateUserService(UpdateUserFields) returns (User) {}
+  rpc DeleteUserService(FindUser) returns (User) {}
+}
+
